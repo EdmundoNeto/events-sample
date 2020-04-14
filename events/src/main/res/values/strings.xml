@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="events_list_title">Eventos</string>
+    <string name="no_events_availiable">Não há nenhum evento disponível. :(</string>
+    <string name="refresh_error_button">Recarregar</string>
+    <string name="error_title">Ooooops</string>
+    <string name="error_body">Esta se sentindo perdido e desconectado, como se estivesse em uma ilha deserta? Siga o conselho, fique calmo, acenda uma luz e continue regarregando.</string>
+    <string name="do_checkin">Faça seu Check-in</string>
+    <string name="email_hint">E-mail</string>
+    <string name="name_hint">Nome</string>
+    <string name="confirm_checkin">Confirme seu Check-In</string>
+    <string name="invalid_data">Por favor, verifique o preenchimento do seu Nome ou e-mail.</string>
+</resources>

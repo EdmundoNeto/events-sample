@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="eventsViewModel"
+            type="com.edmundo.events.viewmodel.EventsViewModel"
+            />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/event_item"
+            android:visibility="@{eventsViewModel.contendVisibility.intValue()}"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            />
+
+
+
+        <include
+            layout="@layout/layout_error"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{eventsViewModel.errorVisibility.intValue()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:onRefreshClick="@{() -> eventsViewModel.getData()}"
+            tools:visibility="gone" />
+
+
+        <FrameLayout
+            android:id="@+id/loadingLayout"
+            android:background="#99000000"
+            android:visibility="@{eventsViewModel.mainLoaderVisibility.intValue()}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </FrameLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:text="@string/no_events_availiable"
+            android:visibility="@{eventsViewModel.noListFoundVisibility.intValue()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

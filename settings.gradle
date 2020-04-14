@@ -1,0 +1,4 @@
+rootProject.name='EventsList'
+include ':app'
+include ':domain'
+include ':events'
